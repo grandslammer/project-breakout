@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 var motion = Vector2()
-const PLAYERSPEED = 300
+const PLAYERSPEED = 500
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
