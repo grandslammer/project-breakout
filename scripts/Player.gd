@@ -4,12 +4,13 @@ var motion = Vector2()
 const PLAYERSPEED = 500
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	pass
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	update_motion()
+	
 
 
 func update_motion():
@@ -20,3 +21,10 @@ func update_motion():
 	else:
 		motion.x = 0
 	move_and_slide(motion)
+	
+func changeBallDirection(ballObject):
+	var anchor = get_node("Anchor")
+	var speed = ballObject.get_linear_velocity().length()
+	var direction = ballObject.position - anchor.global_position
+	var velocity = direction.normalized()*500
+	ballObject.set_linear_velocity(velocity)
