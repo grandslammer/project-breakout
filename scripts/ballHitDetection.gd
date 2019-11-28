@@ -11,7 +11,7 @@ func _ready():
 # warning-ignore:unused_argument
 func _physics_process(delta):
 	var collision = get_colliding_bodies()
-	print(collision.size())
+	#Testing - print(collision.size())
 	if collision.size() > 0:
 		if collision[0].is_in_group("Bricks"):
 			collision[0].Kill()
