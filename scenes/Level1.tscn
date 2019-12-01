@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/ballHitDetection.gd" type="Script" id=1]
 [ext_resource path="res://assets/ball.png" type="Texture" id=2]
@@ -7,6 +7,23 @@
 [ext_resource path="res://scripts/wallCollision.gd" type="Script" id=5]
 [ext_resource path="res://scripts/killBrick.gd" type="Script" id=6]
 [ext_resource path="res://assets/cyan_brick.png" type="Texture" id=7]
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Node2D
+
+# Declare member variables here. Examples:
+# var a = 2
+# var b = \"text\"
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	var view = get_viewport_rect().size
+	print(view[0])
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+#func _process(delta):
+#	pass
+"
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -22,14 +39,16 @@ extents = Vector2( 8.09103, 10 )
 extents = Vector2( 64, 32 )
 
 [node name="Level" type="Node2D"]
+script = SubResource( 5 )
 
 [node name="Ball" type="RigidBody2D" parent="."]
-position = Vector2( 350.138, 832 )
+editor/display_folded = true
+position = Vector2( 365.138, 1088 )
 physics_material_override = SubResource( 1 )
 gravity_scale = 0.2
 contacts_reported = 2
 contact_monitor = true
-linear_velocity = Vector2( 400, -400 )
+linear_velocity = Vector2( 800, -800 )
 linear_damp = 0.0
 angular_damp = 0.0
 script = ExtResource( 1 )
@@ -44,7 +63,8 @@ shape = SubResource( 2 )
 [node name="Paddle" type="RigidBody2D" parent="." groups=[
 "Paddle",
 ]]
-position = Vector2( 355.057, 928 )
+editor/display_folded = true
+position = Vector2( 370.057, 1184 )
 mode = 3
 mass = 0.00102041
 gravity_scale = 0.0

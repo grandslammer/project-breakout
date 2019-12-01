@@ -3,11 +3,11 @@ extends StaticBody2D
 export(int) var tin = 0
 export(int) var tout = 50
 var thalf
-var win = OS.get_window_size()
 var shape
 var shapeowner
 
 func _ready():
+	var win = get_viewport_rect().size
 	thalf = (tin + tout) /2
 	for extpos in [
 			[Vector2(thalf, win.y/2), Vector2(tin - thalf, win.y/2)],  #left
