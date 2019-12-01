@@ -14,7 +14,7 @@ func _input(event):
 
 func update_motion():
 	self.position.x = get_global_mouse_position().x
-	
+
 func changeBallDirection(ballObject):
 	var anchor = get_node("Anchor")
 	var speed = ballObject.get_linear_velocity().length()

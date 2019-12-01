@@ -7,7 +7,7 @@ extends RigidBody2D
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
-	
+
 # warning-ignore:unused_argument
 func _physics_process(delta):
 	var collision = get_colliding_bodies()

@@ -15,7 +15,7 @@ bounce = 1.0
 [sub_resource type="CircleShape2D" id=2]
 radius = 15.1939
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8.09103, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
@@ -59,7 +59,7 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
 position = Vector2( -5.85, -50.15 )
 scale = Vector2( 9.68, 1.55 )
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="Anchor" type="Position2D" parent="Paddle"]
 position = Vector2( -5.47, 1.57 )
