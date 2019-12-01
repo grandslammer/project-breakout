@@ -8,7 +8,7 @@
 [ext_resource path="res://scripts/killBrick.gd" type="Script" id=6]
 [ext_resource path="res://assets/cyan_brick.png" type="Texture" id=7]
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Node2D
 
 # Declare member variables here. Examples:
@@ -25,26 +25,26 @@ func _ready():
 #	pass
 "
 
-[sub_resource type="PhysicsMaterial" id=1]
+[sub_resource type="PhysicsMaterial" id=2]
 friction = 0.0
 bounce = 1.0
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 15.1939
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 8.09103, 10 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 64, 32 )
 
 [node name="Level" type="Node2D"]
-script = SubResource( 5 )
+script = SubResource( 1 )
 
 [node name="Ball" type="RigidBody2D" parent="."]
 editor/display_folded = true
 position = Vector2( 365.138, 1088 )
-physics_material_override = SubResource( 1 )
+physics_material_override = SubResource( 2 )
 gravity_scale = 0.2
 contacts_reported = 2
 contact_monitor = true
@@ -58,7 +58,7 @@ scale = Vector2( 0.03, 0.03 )
 texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 
 [node name="Paddle" type="RigidBody2D" parent="." groups=[
 "Paddle",
@@ -79,7 +79,7 @@ texture = ExtResource( 4 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
 position = Vector2( -5.85, -50.15 )
 scale = Vector2( 9.68, 1.55 )
-shape = SubResource( 3 )
+shape = SubResource( 4 )
 
 [node name="Anchor" type="Position2D" parent="Paddle"]
 position = Vector2( -5.47, 1.57 )
@@ -101,7 +101,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick1"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick2" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -116,7 +116,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick2"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick3" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -131,7 +131,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick3"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick4" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -146,7 +146,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick4"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick5" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -161,7 +161,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick5"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick6" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -176,7 +176,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick6"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick7" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -191,7 +191,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick7"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick8" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -206,7 +206,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick8"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick9" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -221,7 +221,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick9"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick10" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -236,7 +236,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick10"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick11" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -251,7 +251,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick11"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick12" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -266,7 +266,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick12"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick13" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -281,7 +281,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick13"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick14" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -296,7 +296,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick14"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick15" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -311,7 +311,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick15"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick16" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -326,7 +326,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick16"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick17" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -341,7 +341,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick17"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick18" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -356,7 +356,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick18"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick19" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -371,7 +371,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick19"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick20" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -386,7 +386,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick20"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick21" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -401,7 +401,7 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick21"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
 
 [node name="Brick22" type="KinematicBody2D" parent="." groups=[
 "Bricks",
@@ -416,4 +416,4 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick22"]
-shape = SubResource( 4 )
+shape = SubResource( 5 )
