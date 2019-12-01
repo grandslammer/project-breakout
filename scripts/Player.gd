@@ -20,5 +20,5 @@ func changeBallDirection(ballObject):
 	var speed = ballObject.get_linear_velocity().length()
 	var paddleSpeed = self.get_linear_velocity().length()
 	var direction = ballObject.position - anchor.global_position
-	var velocity = direction.normalized()*(ballObject.get_linear_velocity().x+(paddleSpeed/3))
+	var velocity = direction.normalized()*(800+(paddleSpeed/5))
 	ballObject.set_linear_velocity(velocity)
