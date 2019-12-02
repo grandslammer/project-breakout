@@ -36,13 +36,12 @@ radius = 15.1939
 extents = Vector2( 8.09103, 10 )
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 64, 32 )
+extents = Vector2( 48, 24 )
 
 [node name="Level" type="Node2D"]
 script = SubResource( 1 )
 
 [node name="Ball" type="RigidBody2D" parent="."]
-editor/display_folded = true
 position = Vector2( 365.138, 1088 )
 physics_material_override = SubResource( 2 )
 gravity_scale = 0.2
@@ -60,10 +59,14 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource( 3 )
 
+[node name="notifier" type="VisibilityNotifier2D" parent="Ball"]
+position = Vector2( -365.138, -448 )
+scale = Vector2( 36, 64 )
+rect = Rect2( 0, -10, 20, 20 )
+
 [node name="Paddle" type="RigidBody2D" parent="." groups=[
 "Paddle",
 ]]
-editor/display_folded = true
 position = Vector2( 370.057, 1184 )
 mode = 3
 mass = 0.00102041
@@ -90,8 +93,7 @@ script = ExtResource( 5 )
 [node name="Brick1" type="KinematicBody2D" parent="." groups=[
 "Bricks",
 ]]
-editor/display_folded = true
-position = Vector2( 160, 64 )
+position = Vector2( 118.949, 56.8026 )
 rotation = -3.70935e-005
 script = ExtResource( 6 )
 
@@ -107,7 +109,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 288, 64 )
+position = Vector2( 214.949, 56.8026 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick2" groups=[
@@ -122,7 +124,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 416, 64 )
+position = Vector2( 310.949, 56.8026 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick3" groups=[
@@ -137,7 +139,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 544, 64 )
+position = Vector2( 406.949, 56.8026 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick4" groups=[
@@ -152,7 +154,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 96, 128 )
+position = Vector2( 70.9494, 104.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick5" groups=[
@@ -167,7 +169,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 224, 128 )
+position = Vector2( 166.949, 104.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick6" groups=[
@@ -182,7 +184,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 352, 128 )
+position = Vector2( 262.949, 104.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick7" groups=[
@@ -197,7 +199,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 480, 128 )
+position = Vector2( 358.949, 104.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick8" groups=[
@@ -212,7 +214,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 608, 128 )
+position = Vector2( 454.949, 104.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick9" groups=[
@@ -227,7 +229,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 544, 192 )
+position = Vector2( 406.949, 152.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick10" groups=[
@@ -242,7 +244,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 416, 192 )
+position = Vector2( 310.949, 152.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick11" groups=[
@@ -257,7 +259,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 288, 192 )
+position = Vector2( 214.949, 152.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick12" groups=[
@@ -272,7 +274,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 160, 192 )
+position = Vector2( 118.949, 152.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick13" groups=[
@@ -287,7 +289,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 96, 256 )
+position = Vector2( 70.9494, 200.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick14" groups=[
@@ -302,7 +304,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 224, 256 )
+position = Vector2( 166.949, 200.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick15" groups=[
@@ -317,7 +319,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 352, 256 )
+position = Vector2( 262.949, 200.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick16" groups=[
@@ -332,7 +334,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 480, 256 )
+position = Vector2( 358.949, 200.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick17" groups=[
@@ -347,7 +349,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 608, 256 )
+position = Vector2( 454.949, 200.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick18" groups=[
@@ -362,7 +364,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 160, 320 )
+position = Vector2( 118.949, 248.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick19" groups=[
@@ -373,11 +375,193 @@ texture = ExtResource( 7 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick19"]
 shape = SubResource( 5 )
 
+[node name="Brick34" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 70.9494, 296.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick34" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick34"]
+shape = SubResource( 5 )
+
+[node name="Brick35" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 166.949, 296.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick35" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick35"]
+shape = SubResource( 5 )
+
+[node name="Brick36" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 262.949, 296.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick36" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick36"]
+shape = SubResource( 5 )
+
+[node name="Brick37" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 358.949, 296.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick37" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick37"]
+shape = SubResource( 5 )
+
+[node name="Brick38" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 454.949, 296.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick38" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick38"]
+shape = SubResource( 5 )
+
+[node name="Brick39" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 550.949, 296.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick39" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick39"]
+shape = SubResource( 5 )
+
+[node name="Brick40" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 646.949, 296.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick40" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick40"]
+shape = SubResource( 5 )
+
+[node name="Brick41" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 598.949, 344.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick41" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick41"]
+shape = SubResource( 5 )
+
+[node name="Brick42" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 502.949, 344.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick42" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick42"]
+shape = SubResource( 5 )
+
+[node name="Brick43" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 406.949, 344.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick43" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick43"]
+shape = SubResource( 5 )
+
+[node name="Brick44" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 310.949, 344.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick44" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick44"]
+shape = SubResource( 5 )
+
+[node name="Brick45" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 214.949, 344.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick45" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick45"]
+shape = SubResource( 5 )
+
+[node name="Brick46" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+position = Vector2( 118.949, 344.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick46" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick46"]
+shape = SubResource( 5 )
+
 [node name="Brick20" type="KinematicBody2D" parent="." groups=[
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 288, 320 )
+position = Vector2( 214.949, 248.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick20" groups=[
@@ -392,7 +576,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 416, 320 )
+position = Vector2( 310.949, 248.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick21" groups=[
@@ -407,7 +591,7 @@ shape = SubResource( 5 )
 "Bricks",
 ]]
 editor/display_folded = true
-position = Vector2( 544, 320 )
+position = Vector2( 406.949, 248.803 )
 script = ExtResource( 6 )
 
 [node name="brick1" type="Sprite" parent="Brick22" groups=[
@@ -416,4 +600,169 @@ script = ExtResource( 6 )
 texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Brick22"]
+shape = SubResource( 5 )
+
+[node name="Brick23" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 502.949, 248.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick23" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick23"]
+shape = SubResource( 5 )
+
+[node name="Brick24" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 550.949, 200.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick24" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick24"]
+shape = SubResource( 5 )
+
+[node name="Brick25" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 502.949, 152.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick25" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick25"]
+shape = SubResource( 5 )
+
+[node name="Brick26" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 502.949, 152.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick26" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick26"]
+shape = SubResource( 5 )
+
+[node name="Brick27" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 550.949, 104.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick27" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick27"]
+shape = SubResource( 5 )
+
+[node name="Brick28" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 502.949, 56.8026 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick28" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick28"]
+shape = SubResource( 5 )
+
+[node name="Brick29" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 598.949, 56.8026 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick29" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick29"]
+shape = SubResource( 5 )
+
+[node name="Brick30" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 646.949, 104.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick30" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick30"]
+shape = SubResource( 5 )
+
+[node name="Brick31" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 598.949, 152.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick31" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick31"]
+shape = SubResource( 5 )
+
+[node name="Brick32" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 646.949, 200.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick32" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick32"]
+shape = SubResource( 5 )
+
+[node name="Brick33" type="KinematicBody2D" parent="." groups=[
+"Bricks",
+]]
+editor/display_folded = true
+position = Vector2( 598.949, 248.803 )
+script = ExtResource( 6 )
+
+[node name="brick1" type="Sprite" parent="Brick33" groups=[
+"Bricks",
+]]
+texture = ExtResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Brick33"]
 shape = SubResource( 5 )
