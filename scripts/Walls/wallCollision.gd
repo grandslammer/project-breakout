@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-export(int) var tin = 0
+export(int) var tin = 10
 export(int) var tout = 300
 var thalf
 var shape

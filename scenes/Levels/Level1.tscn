@@ -1,12 +1,22 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://scripts/Levels/LevelGenerator.gd" type="Script" id=1]
-[ext_resource path="res://assets/Images/Bricks/yellow_brick.png" type="Texture" id=2]
-[ext_resource path="res://scripts/Ball/ballHitDetection.gd" type="Script" id=3]
-[ext_resource path="res://assets/Images/Ball/ball.png" type="Texture" id=4]
-[ext_resource path="res://scripts/Paddle/Player.gd" type="Script" id=5]
-[ext_resource path="res://assets/Images/Player/controller_rough_png_gorilla.png" type="Texture" id=6]
-[ext_resource path="res://scripts/Walls/wallCollision.gd" type="Script" id=7]
+[ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick1.png" type="Texture" id=2]
+[ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick2.png" type="Texture" id=3]
+[ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick3.png" type="Texture" id=4]
+[ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick4.png" type="Texture" id=5]
+[ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick5.png" type="Texture" id=6]
+[ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick6.png" type="Texture" id=7]
+[ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick7.png" type="Texture" id=8]
+[ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick8.png" type="Texture" id=9]
+[ext_resource path="res://scripts/Ball/ballHitDetection.gd" type="Script" id=10]
+[ext_resource path="res://assets/Images/Ball/ball.png" type="Texture" id=11]
+[ext_resource path="res://scripts/Paddle/Player.gd" type="Script" id=12]
+[ext_resource path="res://assets/Images/Player/controller_rough_png_gorilla.png" type="Texture" id=13]
+[ext_resource path="res://scripts/Walls/wallCollision.gd" type="Script" id=14]
+[ext_resource path="res://assets/Animations/Game Over Text Animations/Anim_GameOverText.tres" type="Animation" id=15]
+[ext_resource path="res://assets/Fonts/Square.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://scripts/Levels/gameOverText.gd" type="Script" id=17]
 
 [sub_resource type="PhysicsMaterial" id=1]
 friction = 0.0
@@ -18,13 +28,19 @@ radius = 15.1939
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 8.09103, 10 )
 
+[sub_resource type="DynamicFont" id=4]
+size = 100
+font_data = ExtResource( 16 )
+
 [node name="Level" type="Node2D"]
 script = ExtResource( 1 )
 brickColumns = 6
-brickHealth = 3
-brickColor = ExtResource( 2 )
+brickHealth = 8
+brickColors = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
 
-[node name="Ball" type="RigidBody2D" parent="."]
+[node name="Ball" type="RigidBody2D" parent="." groups=[
+"Ball",
+]]
 editor/display_folded = true
 position = Vector2( 365.138, 1088 )
 physics_material_override = SubResource( 1 )
@@ -34,11 +50,11 @@ contact_monitor = true
 linear_velocity = Vector2( 800, -800 )
 linear_damp = 0.0
 angular_damp = 0.0
-script = ExtResource( 3 )
+script = ExtResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="Ball"]
 scale = Vector2( 0.03, 0.03 )
-texture = ExtResource( 4 )
+texture = ExtResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
 shape = SubResource( 2 )
@@ -53,11 +69,11 @@ mass = 0.00102041
 gravity_scale = 0.0
 linear_damp = 0.0
 angular_damp = 0.0
-script = ExtResource( 5 )
+script = ExtResource( 12 )
 
 [node name="Sprite" type="Sprite" parent="Paddle"]
 scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 6 )
+texture = ExtResource( 13 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
 position = Vector2( -5.85, -50.15 )
@@ -68,4 +84,23 @@ shape = SubResource( 3 )
 position = Vector2( -5.47, 1.57 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
-script = ExtResource( 7 )
+script = ExtResource( 14 )
+tin = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+"anims/Game Over Text" = ExtResource( 15 )
+
+[node name="Game Over Text" type="Label" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 96.0
+margin_top = 645.0
+margin_right = 624.0
+margin_bottom = 742.0
+rect_pivot_offset = Vector2( 264, 48.5 )
+custom_fonts/font = SubResource( 4 )
+text = "Game Over"
+align = 1
+valign = 1
+autowrap = true
+clip_text = true
+script = ExtResource( 17 )

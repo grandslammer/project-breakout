@@ -2,6 +2,7 @@ extends RigidBody2D
 
 var ballDamage = 1
 
+signal ballNotActive
 
 # warning-ignore:unused_argument
 func _physics_process(delta):
@@ -19,5 +20,7 @@ func isBelowPaddle():
 	var ballLocation = self.position
 	#print(ballLocation.y)
 	if ballLocation.y > get_viewport_rect().size.y:
+		emit_signal("ballNotActive")
 		self.queue_free()
+		
 		

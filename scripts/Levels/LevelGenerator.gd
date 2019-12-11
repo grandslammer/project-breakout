@@ -5,8 +5,8 @@ onready var window = get_viewport_rect().size
 
 export(int,1,8) var brickColumns = 1 #get the user to set the number of columns
 export(int,20,50) var brickDistanceFromTop = 20 #get the user to set the distance from top that the bricks spawn
-export(int,1,5) var brickHealth = 1 #the user is able to set the health of the bricks
-export(StreamTexture) var brickColor = preload("res://assets/Images/Bricks/blue_brick.png")
+export(int,1,8) var brickHealth = 1 #the user is able to set the health of the bricks
+export(Array, StreamTexture) var brickColors = [preload("res://assets/Images/Bricks/Brick Health Colors/Brick1.png")]
 
 
 
@@ -36,6 +36,7 @@ func spawnBricks(maxPossibleBricks,brickSize):#spawn bricks function
 		#Continue the loop
 
 func setBrickProperties(brickInstance):
+	brickInstance.brickColors = brickColors
 	var brickSprite = brickInstance.get_node("Sprite")
-	brickSprite.texture = brickColor
+	brickSprite.texture = brickColors[0]
 	brickInstance.maxBrickHealth = brickHealth
