@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://scripts/Levels/LevelGenerator.gd" type="Script" id=1]
 [ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick1.png" type="Texture" id=2]
@@ -9,55 +9,118 @@
 [ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick6.png" type="Texture" id=7]
 [ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick7.png" type="Texture" id=8]
 [ext_resource path="res://assets/Images/Bricks/Brick Health Colors/Brick8.png" type="Texture" id=9]
-[ext_resource path="res://scripts/Ball/ballHitDetection.gd" type="Script" id=10]
-[ext_resource path="res://assets/Images/Ball/ball.png" type="Texture" id=11]
-[ext_resource path="res://scripts/Paddle/Player.gd" type="Script" id=12]
-[ext_resource path="res://assets/Images/Player/controller_rough_png_gorilla.png" type="Texture" id=13]
-[ext_resource path="res://scripts/Walls/wallCollision.gd" type="Script" id=14]
-[ext_resource path="res://assets/Animations/Game Over Text Animations/Anim_GameOverText.tres" type="Animation" id=15]
-[ext_resource path="res://assets/Fonts/Square.ttf" type="DynamicFontData" id=16]
-[ext_resource path="res://scripts/Levels/gameOverText.gd" type="Script" id=17]
+[ext_resource path="res://assets/Fonts/Square.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://scripts/Walls/ScoreText.gd" type="Script" id=11]
+[ext_resource path="res://scripts/Walls/LevelText.gd" type="Script" id=12]
+[ext_resource path="res://assets/Images/Ball/LivesLeft (3).png" type="Texture" id=13]
+[ext_resource path="res://scripts/Ball/LivesLeft.gd" type="Script" id=14]
+[ext_resource path="res://assets/Images/Ball/LivesLeft (1).png" type="Texture" id=15]
+[ext_resource path="res://assets/Images/Ball/LivesLeft (2).png" type="Texture" id=16]
+[ext_resource path="res://assets/Images/Player/Arrow.png" type="Texture" id=17]
+[ext_resource path="res://scripts/Paddle/ArrowScript.gd" type="Script" id=18]
+[ext_resource path="res://assets/Images/Walls/border.png" type="Texture" id=19]
+[ext_resource path="res://scripts/Walls/borderPlacement.gd" type="Script" id=20]
+[ext_resource path="res://scenes/Instanced Objects/Ball.tscn" type="PackedScene" id=21]
+[ext_resource path="res://scripts/Paddle/Player.gd" type="Script" id=22]
+[ext_resource path="res://assets/Images/Player/controller_rough_png_gorilla.png" type="Texture" id=23]
+[ext_resource path="res://scripts/Paddle/MovementAnimation.gd" type="Script" id=24]
+[ext_resource path="res://scripts/Walls/wallCollision.gd" type="Script" id=25]
+[ext_resource path="res://assets/Animations/Game Over Text Animations/Anim_GameOverText.tres" type="Animation" id=26]
+[ext_resource path="res://assets/Animations/PaddleMovement/Paddle Animation.tres" type="Animation" id=27]
+[ext_resource path="res://scripts/Levels/gameOverText.gd" type="Script" id=28]
 
-[sub_resource type="PhysicsMaterial" id=1]
-friction = 0.0
-bounce = 1.0
+[sub_resource type="DynamicFont" id=1]
+size = 21
+font_data = ExtResource( 10 )
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 15.1939
+[sub_resource type="DynamicFont" id=6]
+size = 21
+font_data = ExtResource( 10 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 8.09103, 10 )
 
-[sub_resource type="DynamicFont" id=4]
-size = 100
-font_data = ExtResource( 16 )
+[sub_resource type="Animation" id=5]
+resource_name = "SpawnBall"
+tracks/0/type = "value"
+tracks/0/path = NodePath("AnimationPlayer/Spawn Ball Text:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AnimationPlayer/Spawn Ball Text:rect_scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 1, 1 ), Vector2( 1.5, 1.5 ), Vector2( 1, 1 ) ]
+}
 
-[node name="Level" type="Node2D"]
+[sub_resource type="DynamicFont" id=3]
+size = 100
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 37
+font_data = ExtResource( 10 )
+
+[node name="Level1" type="Node2D"]
 script = ExtResource( 1 )
-brickColumns = 6
-brickHealth = 8
+brickColumns = 5
+brickDistanceFromTop = 70
+brickHealth = 3
 brickColors = [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ), ExtResource( 9 ) ]
 
-[node name="Ball" type="RigidBody2D" parent="." groups=[
-"Ball",
-]]
-editor/display_folded = true
-position = Vector2( 365.138, 1088 )
-physics_material_override = SubResource( 1 )
-gravity_scale = 0.2
-contacts_reported = 2
-contact_monitor = true
-linear_velocity = Vector2( 800, -800 )
-linear_damp = 0.0
-angular_damp = 0.0
-script = ExtResource( 10 )
+[node name="Score Display" type="Label" parent="."]
+margin_left = 52.0
+margin_top = -2.0
+margin_right = 218.0
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 1 )
+text = "SCORE: 00000000"
+script = ExtResource( 11 )
 
-[node name="Sprite" type="Sprite" parent="Ball"]
-scale = Vector2( 0.03, 0.03 )
-texture = ExtResource( 11 )
+[node name="Level Display" type="Label" parent="."]
+margin_left = 507.357
+margin_top = -2.0
+margin_right = 587.357
+margin_bottom = 21.0
+custom_fonts/font = SubResource( 6 )
+text = "LVL: 4"
+script = ExtResource( 12 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball"]
-shape = SubResource( 2 )
+[node name="LivesLeft" type="Sprite" parent="."]
+position = Vector2( 363.687, 15.2629 )
+scale = Vector2( 0.725806, 0.725806 )
+texture = ExtResource( 13 )
+script = ExtResource( 14 )
+ballLifeSprites = [ ExtResource( 15 ), ExtResource( 16 ), ExtResource( 13 ) ]
+
+[node name="Arrow" type="Sprite" parent="."]
+position = Vector2( 364.207, 1034.04 )
+scale = Vector2( 4, 4 )
+texture = ExtResource( 17 )
+script = ExtResource( 18 )
+
+[node name="Game Border" type="Sprite" parent="."]
+position = Vector2( 0.115967, 0.115986 )
+texture = ExtResource( 19 )
+offset = Vector2( 360, 640 )
+script = ExtResource( 20 )
+
+[node name="Ball" parent="." instance=ExtResource( 21 )]
+continuous_cd = 2
 
 [node name="Paddle" type="RigidBody2D" parent="." groups=[
 "Paddle",
@@ -69,38 +132,64 @@ mass = 0.00102041
 gravity_scale = 0.0
 linear_damp = 0.0
 angular_damp = 0.0
-script = ExtResource( 12 )
+script = ExtResource( 22 )
 
 [node name="Sprite" type="Sprite" parent="Paddle"]
+position = Vector2( -5.8501, 16 )
 scale = Vector2( 0.4, 0.4 )
-texture = ExtResource( 13 )
+texture = ExtResource( 23 )
+script = ExtResource( 24 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Paddle"]
-position = Vector2( -5.85, -50.15 )
+position = Vector2( -5.85004, -50.15 )
 scale = Vector2( 9.68, 1.55 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Anchor" type="Position2D" parent="Paddle"]
 position = Vector2( -5.47, 1.57 )
 
 [node name="Walls" type="StaticBody2D" parent="."]
-script = ExtResource( 14 )
-tin = 0
+script = ExtResource( 25 )
+tin = 28
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/Game Over Text" = ExtResource( 15 )
+"anims/Game Over Text" = ExtResource( 26 )
+"anims/Paddle Animation" = ExtResource( 27 )
+anims/SpawnBall = SubResource( 5 )
 
 [node name="Game Over Text" type="Label" parent="AnimationPlayer"]
-modulate = Color( 1, 1, 1, 0 )
 margin_left = 96.0
 margin_top = 645.0
 margin_right = 624.0
 margin_bottom = 742.0
 rect_pivot_offset = Vector2( 264, 48.5 )
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 3 )
 text = "Game Over"
 align = 1
 valign = 1
 autowrap = true
 clip_text = true
-script = ExtResource( 17 )
+script = ExtResource( 28 )
+
+[node name="Restart Text" type="Label" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 205.0
+margin_top = 736.0
+margin_right = 509.0
+margin_bottom = 784.0
+custom_fonts/font = SubResource( 4 )
+text = "TAP TO RESTART"
+align = 1
+valign = 1
+
+[node name="Spawn Ball Text" type="Label" parent="AnimationPlayer"]
+modulate = Color( 1, 1, 1, 0 )
+margin_left = 205.0
+margin_top = 736.0
+margin_right = 509.0
+margin_bottom = 817.0
+custom_fonts/font = SubResource( 4 )
+text = "TAP TO USE ANOTHER LIFE"
+align = 1
+valign = 1
+autowrap = true

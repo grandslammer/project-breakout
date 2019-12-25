@@ -3,10 +3,15 @@ extends KinematicBody2D
 var maxBrickHealth = 1
 var currentBrickHealth = 1
 var brickColors
+var brickScore
+
+signal brickDestroyed
 
 func HitBrick(ballDamage):
 	currentBrickHealth = currentBrickHealth - ballDamage
 	if currentBrickHealth <= 0:
+		emit_signal("brickDestroyed",brickScore)
+		#print("Emitted")
 		self.queue_free()
 	else:
 		var brickSprite = get_node("Sprite")
@@ -16,6 +21,7 @@ func HitBrick(ballDamage):
 func _ready():
 	currentBrickHealth = maxBrickHealth
 	var brickSprite = get_node("Sprite")
+	brickScore = maxBrickHealth
 	updateColor(brickSprite)
 	#updateText()
 

@@ -1,25 +1,42 @@
 extends Label
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+onready var levelName = get_tree().get_current_scene().get_name()
+onready var RestartText = get_tree().get_root().get_node(levelName+"/AnimationPlayer/Restart Text")
+onready var SpawnBallText = get_tree().get_root().get_node(levelName+"/AnimationPlayer/Spawn Ball Text")
+onready var node = get_tree().get_root().get_node(levelName)
+
+
 func _ready():
-	setPivotPoint()
+	node.connect("noMoreLives", self, "startNewGame")
+	start()
+
+
+func start():
+	setPivotPoint(self)
+	setPivotPoint(SpawnBallText)
 	self.visible = false
-	var node = get_tree().get_root().get_node("Level/Ball")
-	node.connect("ballNotActive", self, "noMoreBall")
+	RestartText.visible = false
 # Called when the node enters the scene tree for the first time.
-func noMoreBall():
+func startNewGame():
+	node.lives = node.lives - 1
+	node.livesText.updateLives()
+	RestartText.visible = true
 	self.visible = true
-	get_tree().get_root().get_node("Level/AnimationPlayer").play("Game Over Text")
+	get_tree().get_root().get_node(levelName+"/AnimationPlayer").play("Game Over Text")
 	
 
-func setPivotPoint():
-	var textSize = rect_size
+func setPivotPoint(object):
+	var textSize = object.rect_size
 	print(textSize.y)
-	rect_pivot_offset = Vector2((textSize.x/2),(textSize.y/2))
+	object.rect_pivot_offset = Vector2((textSize.x/2),(textSize.y/2))
 	
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _input(event):
+	if node.resetGame == true :
+		if event is InputEventScreenTouch:	
+			if event.pressed:
+				node.restartGame()
+		if event is InputEventMouseButton:
+			if event.pressed:
+				node.restartGame()
+		else:
+			pass
